@@ -47,6 +47,4 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         ch.Move(velocity * Time.deltaTime);
     }
-
-
 }
