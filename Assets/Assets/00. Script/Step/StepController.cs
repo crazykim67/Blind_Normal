@@ -11,6 +11,7 @@ public class StepController : MonoBehaviour
     [SerializeField]
     private List<AudioClip> clips = new List<AudioClip>();
 
+
     private void Awake()
     {
         ad = GetComponent<AudioSource>();

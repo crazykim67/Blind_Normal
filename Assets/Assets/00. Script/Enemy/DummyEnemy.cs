@@ -9,6 +9,9 @@ public class DummyEnemy : MonoBehaviour
 
     [SerializeField]
     private StepController stepController;
+    [SerializeField]
+    private HandController handController;
+    public bool isHand = false;
 
     [SerializeField]
     private List<Transform> destinations = new List<Transform>();
@@ -44,6 +47,9 @@ public class DummyEnemy : MonoBehaviour
                     stepController.OnEnemyStep(this.transform, stepIndex);
                     stepIndex = 0;
                 }
+
+                if(isHand)
+                    handController.OnHand(this.transform);
             }
         }
         else if(agent.velocity.magnitude <= 0 && agent.pathPending)

@@ -60,21 +60,12 @@ public class HandController : MonoBehaviour
         }
     }
 
-    #region Player
 
-    public void OnHand()
+    public void OnHand(Transform tr)
     {
         if (isLeft)
-            HandPoolManager.Instance.GetLeftHand();
+            HandPoolManager.Instance.GetLeftHand(tr);
         else if (isRight)
-            HandPoolManager.Instance.GetRightHand();
+            HandPoolManager.Instance.GetRightHand(tr);
     }
-
-    #endregion
-
-    #region Enemy
-
-
-
-    #endregion
 }

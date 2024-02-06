@@ -25,17 +25,20 @@ public class HandPoolManager : MonoBehaviour
 
     #endregion
 
-    [Header("Steps")]
+    [Header("Hands")]
     [SerializeField]
     private GameObject leftHand;
     [SerializeField]
     private GameObject rightHand;
 
-    [Header("Player")]
+    [Header("Enemy")]
     [SerializeField]
     private Transform playerTr;
     private Queue<LeftHand> leftHandQueue = new Queue<LeftHand>();
     private Queue<RightHand> rightHandQueue = new Queue<RightHand>();
+    [SerializeField]
+    private List<DummyEnemy> enemies = new List<DummyEnemy>();
+
 
     private void Awake()
     {
@@ -47,7 +50,7 @@ public class HandPoolManager : MonoBehaviour
         else
             Destroy(this.gameObject);
 
-        Initialize(5);
+        Initialize(5 * enemies.Count);
         playerTr = FindFirstObjectByType<PlayerController>().GetComponent<Transform>();
     }
 
@@ -88,10 +91,10 @@ public class HandPoolManager : MonoBehaviour
         return hand;
     }
 
-    public LeftHand GetLeftHand()
+    public LeftHand GetLeftHand(Transform tr)
     {
-        Vector3 pos = playerTr.position;
-        Quaternion rot = playerTr.rotation;
+        Vector3 pos = tr.position;
+        Quaternion rot = tr.localRotation;
 
         if(leftHandQueue.Count > 0)
         {
@@ -99,7 +102,7 @@ public class HandPoolManager : MonoBehaviour
 
             hand.transform.SetParent(null);
             hand.transform.position = new Vector3(pos.x, 0, pos.z);
-            hand.transform.rotation = Quaternion.Euler(0, rot.y - 90, 0);
+            hand.transform.rotation = Quaternion.Euler(0, rot.eulerAngles.y + 90, 0);
 
             hand.gameObject.SetActive(true);
 
@@ -114,7 +117,7 @@ public class HandPoolManager : MonoBehaviour
             newHand.gameObject.SetActive(true);
             newHand.transform.SetParent(null);
             newHand.transform.position = new Vector3(pos.x, 0, pos.z);
-            newHand.transform.rotation = Quaternion.Euler(0, rot.y - 90, 0);
+            newHand.transform.rotation = Quaternion.Euler(0, rot.eulerAngles.y + 90, 0);
 
             newHand.OnHand();
 
@@ -122,10 +125,10 @@ public class HandPoolManager : MonoBehaviour
         }
     }
 
-    public RightHand GetRightHand()
+    public RightHand GetRightHand(Transform tr)
     {
-        Vector3 pos = playerTr.position;
-        Quaternion rot = playerTr.rotation;
+        Vector3 pos = tr.position;
+        Quaternion rot = tr.localRotation;
 
         if (leftHandQueue.Count > 0)
         {
@@ -133,7 +136,7 @@ public class HandPoolManager : MonoBehaviour
 
             hand.transform.SetParent(null);
             hand.transform.position = new Vector3(pos.x, 0, pos.z);
-            hand.transform.rotation = Quaternion.Euler(0, rot.y - 270, 0);
+            hand.transform.rotation = Quaternion.Euler(0, rot.eulerAngles.y + 270, 0);
 
             hand.gameObject.SetActive(true);
 
@@ -148,7 +151,7 @@ public class HandPoolManager : MonoBehaviour
             newHand.gameObject.SetActive(true);
             newHand.transform.SetParent(null);
             newHand.transform.position = new Vector3(pos.x, 0, pos.z);
-            newHand.transform.rotation = Quaternion.Euler(0, rot.y - 270, 0);
+            newHand.transform.rotation = Quaternion.Euler(0, rot.eulerAngles.y + 270, 0);
 
             newHand.OnHand();
 
