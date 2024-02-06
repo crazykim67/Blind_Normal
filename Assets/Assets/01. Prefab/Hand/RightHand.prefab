@@ -103,6 +103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2340159173098717384}
+  - component: {fileID: 3193163743056494346}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -127,6 +128,24 @@ Transform:
   - {fileID: 6445922101077788519}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+--- !u!114 &3193163743056494346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3013065037459668356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ecbf6cb44260b4c9b5f96aa692465b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handType: 1
+  ren: {fileID: 6008278332633950972}
+  mat: {fileID: 0}
+  spotLight: {fileID: 897010501919549418}
+  showSpeed: 1
+  hideSpeed: 0.5
 --- !u!1 &3162507410000507358
 GameObject:
   m_ObjectHideFlags: 0

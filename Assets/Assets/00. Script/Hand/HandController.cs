@@ -25,6 +25,7 @@ public class HandController : MonoBehaviour
         Raycast(Direction.Right);
     }
 
+    // 방향 충돌 감지
     private void Raycast(Direction dir)
     {
         int layerMask = 1 << LayerMask.NameToLayer("Map");
@@ -58,4 +59,22 @@ public class HandController : MonoBehaviour
                 isRight = false;
         }
     }
+
+    #region Player
+
+    public void OnHand()
+    {
+        if (isLeft)
+            HandPoolManager.Instance.GetLeftHand();
+        else if (isRight)
+            HandPoolManager.Instance.GetRightHand();
+    }
+
+    #endregion
+
+    #region Enemy
+
+
+
+    #endregion
 }

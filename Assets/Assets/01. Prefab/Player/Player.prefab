@@ -130,7 +130,6 @@ MonoBehaviour:
   speed: 1
   gravity: -9.8
   moveDir: {x: 0, y: 0, z: 0}
-  distance: 0.6
 --- !u!114 &6233023277135598176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 5298612650878435157}
   stepController: {fileID: 2791607470638987018}
+  handController: {fileID: 1507784834578598779}
   enable: 1
   amplitude: 0.003
   frequency: 5
@@ -591,3 +591,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 0.6
+  isLeft: 0
+  isRight: 0

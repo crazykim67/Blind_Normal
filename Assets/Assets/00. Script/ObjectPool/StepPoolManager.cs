@@ -25,6 +25,7 @@ public class StepPoolManager : MonoBehaviour
 
     #endregion
 
+    [Header("Steps")]
     [SerializeField]
     private GameObject leftStep;
     [SerializeField]
@@ -111,7 +112,7 @@ public class StepPoolManager : MonoBehaviour
         }
         else
         {
-            var newStep = Instance.CreateNewObject();
+            var newStep = CreateNewObject();
 
             newStep.gameObject.SetActive(true);
             newStep.transform.SetParent(null);
